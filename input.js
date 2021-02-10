@@ -31,7 +31,17 @@ const setupInput = (conn) => {
       }
     });
   };
+  const speak = () => {
+    stdin.on("data", (key) => {
+      if (key === "n") {
+        connection.write("Say: I'm gonna get ya!");
+      } else if (key === "m") {
+        connection.write("Say: Please let me eat! :)");
+      }
+    });
+  };
 
+  speak();
   handleUserInput();
   movement();
 
