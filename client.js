@@ -12,7 +12,10 @@ const connect = () => {
   conn.on("connect", () => {
     console.log("Snake Connection was Successful!");
     const name = "AKU";
-    conn.write("Name: AKU");
+    conn.write(`Name: ${name}`);
+    // setInterval(() => {
+    //   conn.write("Move: up");
+    // }, 500)
   })
 
   conn.on("data", (data) => {
