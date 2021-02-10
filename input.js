@@ -1,4 +1,5 @@
 let connection;
+const { MOVE_UP_KEY, MOVE_LEFT_KEY, MOVE_DOWN_KEY, MOVE_RIGHT_KEY } = require("./constants");
 
 const setupInput = (conn) => {
   connection = conn;
@@ -18,16 +19,16 @@ const setupInput = (conn) => {
     stdin.on("data", (key) => {
       if (key === "w") {
         // console.log("up");
-        connection.write("Move: up");
+        connection.write(MOVE_UP_KEY);
       } else if (key === "a") {
         // console.log("left");
-        connection.write("Move: left");
+        connection.write(MOVE_LEFT_KEY);
       } else if (key === "s") {
         // console.log("down");
-        connection.write("Move: down");
+        connection.write(MOVE_DOWN_KEY);
       } else if (key === "d") {
         // console.log("right");
-        connection.write("Move: right");
+        connection.write(MOVE_RIGHT_KEY);
       }
     });
   };
@@ -37,6 +38,8 @@ const setupInput = (conn) => {
         connection.write("Say: I'm gonna get ya!");
       } else if (key === "m") {
         connection.write("Say: Please let me eat! :)");
+      } else if (key === "b") {
+        connection.write("Say: This is cool!!");
       }
     });
   };
